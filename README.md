@@ -24,7 +24,7 @@ Upload PDFs, embed with **Ollama** (`nomic-embed-text`), store in **ChromaDB**, 
 ## 🧱 Project Structure
 ```
 
-rag-chat/
+root/
 ├── backend/
 │ ├── app/
 │ │ ├── **init**.py
@@ -35,7 +35,7 @@ rag-chat/
 │ │ │ ├── ask.py # POST /v1/ask
 │ │ │ └── ingest.py # POST /v1/ingest
 │ │ └── services/
-│ │ ├── document_processing.py# PDF -> chunks
+│ │ ├── document_processing.py # PDF -> chunks
 │ │ ├── llm.py # call Ollama chat
 │ │ ├── rerank.py # CrossEncoder top-3
 │ │ └── vector_store.py # Chroma get/upsert/query
