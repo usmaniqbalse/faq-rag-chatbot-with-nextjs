@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Message, AskResponse } from "@/lib/types";
 import { loadThread, saveThread, clearThread } from "@/lib/storage";
 import MessageList from "./MessageList";
@@ -13,6 +13,7 @@ function uid() {
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [busy, setBusy] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export default function Chat() {
       top: listRef.current.scrollHeight,
       behavior: "smooth",
     });
-  }, [messages]);
+  }, [messages, busy]);
 
   async function send(text: string) {
     const user: Message = {
@@ -36,7 +37,7 @@ export default function Chat() {
       createdAt: Date.now(),
     };
     setMessages((m) => [...m, user]);
-
+    setBusy(true);
     try {
       const res = await fetch("/api/ask", {
         method: "POST",
@@ -59,13 +60,23 @@ export default function Chat() {
         createdAt: Date.now(),
       };
       setMessages((m) => [...m, assistant]);
+    } finally {
+      setBusy(false);
     }
   }
 
   return (
-    <div className="mx-auto flex h-screen max-w-4xl flex-col">
-      <header className="flex items-center justify-between border-b bg-white px-4 py-3">
-        <div className="font-semibold">RAG Chat</div>
+    <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 py-6">
+      <header className="card mb-4 flex items-center justify-between px-4 py-3">
+        <div className="flex items-center gap-3">
+          <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 shadow"></div>
+          <div>
+            <div className="text-lg font-semibold">RAG Chat</div>
+            <div className="text-xs muted">
+              Ollama + ChromaDB + CrossEncoder
+            </div>
+          </div>
+        </div>
         <div className="flex items-center gap-3">
           <FileUploader />
           <button
@@ -73,18 +84,21 @@ export default function Chat() {
               clearThread();
               setMessages([]);
             }}
-            className="rounded-xl border bg-white px-3 py-2 hover:bg-neutral-50"
+            className="btn-ghost"
+            title="Clear local chat history"
           >
             Clear chat
           </button>
         </div>
       </header>
 
-      <div ref={listRef} className="flex-1 overflow-y-auto">
-        <MessageList messages={messages} />
+      <div ref={listRef} className="card flex-1 overflow-y-auto">
+        <MessageList messages={messages} busy={busy} />
       </div>
 
-      <Composer onSend={send} />
+      <footer className="mt-4 card">
+        <Composer onSend={send} busy={busy} />
+      </footer>
     </div>
   );
 }

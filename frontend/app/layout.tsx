@@ -1,3 +1,4 @@
+import "./globals.css";
 export const metadata = {
   title: "RAG Chat",
   description: "Local RAG with Ollama",
@@ -9,8 +10,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-neutral-50 text-neutral-900">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

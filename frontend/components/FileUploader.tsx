@@ -26,13 +26,13 @@ export default function FileUploader() {
     } finally {
       setBusy(false);
       e.target.value = "";
+      setTimeout(() => setMsg(null), 5000);
     }
   }
 
   return (
     <div className="flex items-center gap-3">
-      <label className="inline-flex items-center gap-2 rounded-xl border px-3 py-2 bg-white cursor-pointer">
-        <span>📄 Upload PDF</span>
+      <label className={`btn-ghost cursor-pointer ${busy ? "opacity-60" : ""}`}>
         <input
           type="file"
           accept="application/pdf"
@@ -40,8 +40,9 @@ export default function FileUploader() {
           onChange={handleFile}
           disabled={busy}
         />
+        📄 Upload PDF
       </label>
-      {busy && <span className="text-sm text-neutral-500">Processing…</span>}
+      {busy && <span className="text-sm muted">Processing…</span>}
       {msg && <span className="text-sm">{msg}</span>}
     </div>
   );
