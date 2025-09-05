@@ -1,4 +1,3 @@
-```markdown
 # RAG Chat (Next.js 14 + FastAPI + Ollama + ChromaDB)
 
 ChatGPT-style local chat UI (**Next.js 14 App Router**) backed by a secure **FastAPI** service.  
@@ -22,49 +21,48 @@ Upload PDFs, embed with **Ollama** (`nomic-embed-text`), store in **ChromaDB**, 
 ---
 
 ## 🧱 Project Structure
-```
 
+```
 root/
 ├── backend/
-│ ├── app/
-│ │ ├── **init**.py
-│ │ ├── config.py # env/settings
-│ │ ├── deps.py # API-key dependency
-│ │ ├── models.py # pydantic DTOs
-│ │ ├── routers/
-│ │ │ ├── ask.py # POST /v1/ask
-│ │ │ └── ingest.py # POST /v1/ingest
-│ │ └── services/
-│ │ ├── document_processing.py # PDF -> chunks
-│ │ ├── llm.py # call Ollama chat
-│ │ ├── rerank.py # CrossEncoder top-3
-│ │ └── vector_store.py # Chroma get/upsert/query
-│ ├── main.py # FastAPI app + CORS
-│ ├── requirements.txt
-│ └── .env.example
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── config.py                # env/settings
+│   │   ├── deps.py                  # API-key dependency
+│   │   ├── models.py                # pydantic DTOs
+│   │   ├── routers/
+│   │   │   ├── ask.py               # POST /v1/ask
+│   │   │   └── ingest.py            # POST /v1/ingest
+│   │   └── services/
+│   │       ├── document_processing.py   # PDF -> chunks
+│   │       ├── llm.py                   # call Ollama chat
+│   │       ├── rerank.py                # CrossEncoder top-3
+│   │       └── vector_store.py          # Chroma get/upsert/query
+│   ├── main.py                     # FastAPI app + CORS
+│   ├── requirements.txt
+│   └── .env.example
 └── frontend/
-├── app/
-│ ├── api/
-│ │ ├── ask/route.ts # proxies to backend /v1/ask
-│ │ └── ingest/route.ts # proxies to backend /v1/ingest
-│ ├── globals.css
-│ ├── layout.tsx
-│ └── page.tsx # Chat page
-├── components/
-│ ├── Chat.tsx
-│ ├── Composer.tsx
-│ ├── FileUploader.tsx
-│ └── MessageList.tsx
-├── lib/
-│ ├── storage.ts # localStorage thread
-│ └── types.ts
-├── next.config.js
-├── package.json
-├── postcss.config.js
-├── tailwind.config.ts
-└── tsconfig.json
-
-````
+    ├── app/
+    │   ├── api/
+    │   │   ├── ask/route.ts         # proxies to backend /v1/ask
+    │   │   └── ingest/route.ts      # proxies to backend /v1/ingest
+    │   ├── globals.css
+    │   ├── layout.tsx
+    │   └── page.tsx                 # Chat page
+    ├── components/
+    │   ├── Chat.tsx
+    │   ├── Composer.tsx
+    │   ├── FileUploader.tsx
+    │   └── MessageList.tsx
+    ├── lib/
+    │   ├── storage.ts               # localStorage thread
+    │   └── types.ts
+    ├── next.config.js
+    ├── package.json
+    ├── postcss.config.js
+    ├── tailwind.config.ts
+    └── tsconfig.json
+```
 
 ---
 
@@ -83,7 +81,7 @@ root/
 ```bash
 git clone https://github.com/yourname/rag-chat.git
 cd rag-chat
-````
+```
 
 ---
 
