@@ -79,8 +79,8 @@ root/
 ## 1) Clone the repo
 
 ```bash
-git clone https://github.com/yourname/rag-chat.git
-cd rag-chat
+git clone https://github.com/usmaniqbalse/faq-rag-chatbot-with-nextjs.git
+cd faq-rag-chatbot-with-nextjs
 ```
 
 ---
