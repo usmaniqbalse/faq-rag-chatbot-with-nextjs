@@ -304,13 +304,7 @@ Frontend now at: **[http://localhost:3000](http://localhost:3000)**
 
 ---
 
-## 11) License
-
-MIT (Open Source)
-
----
-
-## 12) Quick Commands (copy/paste)
+## 11) Quick Commands (copy/paste)
 
 ```bash
 # back end
