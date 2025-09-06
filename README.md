@@ -1,4 +1,4 @@
-# FAQs RAG Chat (Node.js + Next.js 14 + Python + FastAPI + Ollama + ChromaDB)
+# FAQs RAG Chatbot (Node.js + Next.js 14 + Python + FastAPI + Ollama + ChromaDB)
 
 FAQs local chat UI (**Next.js 14 App Router**) backed by a secure **FastAPI** service.  
 Upload PDFs, embed with **Ollama** (`nomic-embed-text`), store in **ChromaDB**, re-rank with **CrossEncoder**, and answer via **`llama3.2:3b`** strictly from retrieved context.
