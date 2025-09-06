@@ -7,6 +7,10 @@ Upload PDFs, embed with **Ollama** (`nomic-embed-text`), store in **ChromaDB**, 
 
 ---
 
+<img src="assets/chat-1.png" alt="Chatbot 1" />
+<img src="assets/chat-2.png" alt="Chatbot 2" />
+<img src="assets/chat-3.png" alt="Chatbot 3" />
+
 ## ✨ Features
 
 - PDF → text → chunks (size **400**, overlap **100**)
