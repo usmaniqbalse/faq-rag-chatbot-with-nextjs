@@ -1,6 +1,6 @@
-# RAG Chat (Next.js 14 + FastAPI + Ollama + ChromaDB)
+# FAQs RAG Chat (Node.js + Next.js 14 + Python + FastAPI + Ollama + ChromaDB)
 
-ChatGPT-style local chat UI (**Next.js 14 App Router**) backed by a secure **FastAPI** service.  
+FAQs local chat UI (**Next.js 14 App Router**) backed by a secure **FastAPI** service.  
 Upload PDFs, embed with **Ollama** (`nomic-embed-text`), store in **ChromaDB**, re-rank with **CrossEncoder**, and answer via **`llama3.2:3b`** strictly from retrieved context.
 
 > **Offline note:** First run needs internet to cache the CrossEncoder. After that, the system works fully offline (models + cache are local).
@@ -14,7 +14,7 @@ Upload PDFs, embed with **Ollama** (`nomic-embed-text`), store in **ChromaDB**, 
 - Persistent vector store via **ChromaDB** (`./demo-rag-chroma`)
 - Re-ranking with `cross-encoder/ms-marco-MiniLM-L-6-v2` (top-3)
 - Grounded answers from **`llama3.2:3b`** (no outside knowledge)
-- Chat thread UI like ChatGPT; Q&A persisted to **localStorage**
+- Chat thread UI Chatbot; Q&A persisted to **localStorage**
 - Secure backend with **API key** (kept server-side in Next.js API routes)
 - CORS limited to allowed origins
 
@@ -295,14 +295,14 @@ Frontend now at: **[http://localhost:3000](http://localhost:3000)**
 ## 10) Tech Stack
 
 - **Frontend**: Next.js 14 (App Router), TypeScript, TailwindCSS
-- **Backend**: FastAPI, Uvicorn, Pydantic
+- **Backend**: FastAPI, Uvicorn, Pydantic, Node.js
 - **RAG**: Ollama (LLMs/embeddings), ChromaDB (vectors), Sentence-Transformers (re-rank)
 
 ---
 
 ## 11) License
 
-MIT (replace with your preferred license)
+MIT (Open Source)
 
 ---
 
